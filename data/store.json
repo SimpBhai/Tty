@@ -1,0 +1,411 @@
+{
+  "name": "AegisCord Security Core",
+  "description": "Cryptographically secured private communication server",
+  "icon": "/icon-192.png",
+  "categories": [
+    {
+      "id": "cat-info",
+      "name": "INFORMATION",
+      "position": 0
+    },
+    {
+      "id": "cat-text",
+      "name": "TEXT CHANNELS",
+      "position": 1
+    },
+    {
+      "id": "cat-vault",
+      "name": "ENCRYPTED VAULT",
+      "position": 2
+    },
+    {
+      "id": "cat-voice",
+      "name": "VOICE LOUNGES",
+      "position": 3
+    }
+  ],
+  "roles": [
+    {
+      "id": "role-owner",
+      "name": "Owner",
+      "color": "#f59e0b",
+      "hoist": true,
+      "position": 0,
+      "permissions": [
+        "ADMINISTRATOR",
+        "MANAGE_SERVER",
+        "MANAGE_ROLES",
+        "MANAGE_CHANNELS",
+        "VIEW_AUDIT_LOG",
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "ATTACH_FILES",
+        "ADD_REACTIONS",
+        "MENTION_ROLES",
+        "MANAGE_MESSAGES",
+        "SEND_ENCRYPTED_FILES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "STREAM_SCREEN",
+        "MUTE_MEMBERS",
+        "DEAFEN_MEMBERS",
+        "MOVE_MEMBERS",
+        "PRIORITY_SPEAKER"
+      ]
+    },
+    {
+      "id": "role-admin",
+      "name": "Security Admin",
+      "color": "#ef4444",
+      "hoist": true,
+      "position": 1,
+      "permissions": [
+        "MANAGE_SERVER",
+        "MANAGE_ROLES",
+        "MANAGE_CHANNELS",
+        "VIEW_AUDIT_LOG",
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "ATTACH_FILES",
+        "ADD_REACTIONS",
+        "MENTION_ROLES",
+        "MANAGE_MESSAGES",
+        "SEND_ENCRYPTED_FILES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "STREAM_SCREEN",
+        "MUTE_MEMBERS",
+        "DEAFEN_MEMBERS"
+      ]
+    },
+    {
+      "id": "role-mod",
+      "name": "Moderator",
+      "color": "#3b82f6",
+      "hoist": true,
+      "position": 2,
+      "permissions": [
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "ATTACH_FILES",
+        "ADD_REACTIONS",
+        "MANAGE_MESSAGES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "MUTE_MEMBERS"
+      ]
+    },
+    {
+      "id": "role-vip",
+      "name": "Cipher VIP",
+      "color": "#a855f7",
+      "hoist": true,
+      "position": 3,
+      "permissions": [
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "ATTACH_FILES",
+        "ADD_REACTIONS",
+        "SEND_ENCRYPTED_FILES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "STREAM_SCREEN",
+        "PRIORITY_SPEAKER"
+      ]
+    },
+    {
+      "id": "role-member",
+      "name": "Verified Operative",
+      "color": "#10b981",
+      "hoist": true,
+      "position": 4,
+      "isDefault": true,
+      "permissions": [
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "ATTACH_FILES",
+        "ADD_REACTIONS",
+        "SEND_ENCRYPTED_FILES",
+        "CONNECT_VOICE",
+        "SPEAK"
+      ]
+    },
+    {
+      "id": "role-guest",
+      "name": "Guest",
+      "color": "#94a3b8",
+      "hoist": false,
+      "position": 5,
+      "permissions": [
+        "VIEW_CHANNEL",
+        "SEND_MESSAGES",
+        "CONNECT_VOICE"
+      ]
+    }
+  ],
+  "channels": [
+    {
+      "id": "ch-announcements",
+      "name": "announcements",
+      "type": "announcement",
+      "topic": "Official cryptographic announcements and system updates",
+      "categoryId": "cat-info",
+      "position": 0,
+      "permissionOverrides": [
+        {
+          "roleId": "role-member",
+          "allow": [
+            "VIEW_CHANNEL",
+            "ADD_REACTIONS"
+          ],
+          "deny": [
+            "SEND_MESSAGES"
+          ]
+        },
+        {
+          "roleId": "role-guest",
+          "allow": [
+            "VIEW_CHANNEL"
+          ],
+          "deny": [
+            "SEND_MESSAGES"
+          ]
+        }
+      ],
+      "createdAt": 1787729086428
+    },
+    {
+      "id": "ch-rules",
+      "name": "rules-and-privacy",
+      "type": "text",
+      "topic": "Zero-knowledge policies and operational security protocol",
+      "categoryId": "cat-info",
+      "position": 1,
+      "createdAt": 1787815486428
+    },
+    {
+      "id": "ch-general",
+      "name": "general-chat",
+      "type": "text",
+      "topic": "End-to-End Encrypted communications lounge",
+      "categoryId": "cat-text",
+      "position": 0,
+      "createdAt": 1787901886428
+    },
+    {
+      "id": "ch-tech",
+      "name": "cyber-ops",
+      "type": "text",
+      "topic": "Cryptographic discussion, key management & decentralized tools",
+      "categoryId": "cat-text",
+      "position": 1,
+      "createdAt": 1787988286428
+    },
+    {
+      "id": "ch-vault",
+      "name": "secret-classified",
+      "type": "vault",
+      "topic": "Top secret restricted chamber with dual-layer AES-GCM encryption",
+      "categoryId": "cat-vault",
+      "position": 0,
+      "isPrivate": true,
+      "permissionOverrides": [
+        {
+          "roleId": "role-member",
+          "allow": [],
+          "deny": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ]
+        },
+        {
+          "roleId": "role-guest",
+          "allow": [],
+          "deny": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ]
+        }
+      ],
+      "createdAt": 1787988286428
+    },
+    {
+      "id": "ch-voice-general",
+      "name": "Voice Lounge",
+      "type": "voice",
+      "topic": "Encrypted low-latency audio stream mesh",
+      "categoryId": "cat-voice",
+      "position": 0,
+      "createdAt": 1787988286428
+    },
+    {
+      "id": "ch-voice-ops",
+      "name": "Command Briefing (Voice)",
+      "type": "voice",
+      "topic": "Restricted voice tactical channel",
+      "categoryId": "cat-voice",
+      "position": 1,
+      "createdAt": 1788074686428
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-commander",
+      "username": "Commander",
+      "tag": "0001",
+      "avatarColor": "#5865f2",
+      "customStatus": "🛡️ Enforcing AES-GCM zero-trust keys",
+      "status": "online",
+      "roleIds": [
+        "role-owner"
+      ],
+      "isOwner": true,
+      "isAdmin": true,
+      "token": "AEGIS_ROOT_TOKEN_0001",
+      "createdAt": 1787297086428,
+      "lastActive": 1788161086428
+    },
+    {
+      "id": "usr-valkyrie",
+      "username": "Valkyrie",
+      "tag": "1337",
+      "avatarColor": "#ec4899",
+      "customStatus": "⚡ Auditing encryption tunnels",
+      "status": "online",
+      "roleIds": [
+        "role-admin"
+      ],
+      "isAdmin": true,
+      "token": "AEGIS_SEC_TOKEN_1337",
+      "createdAt": 1787469886428,
+      "lastActive": 1788160786428
+    },
+    {
+      "id": "usr-cipher",
+      "username": "CipherLord",
+      "tag": "4096",
+      "avatarColor": "#a855f7",
+      "customStatus": "🔒 PGP & WebCrypto enthusiast",
+      "status": "idle",
+      "roleIds": [
+        "role-vip"
+      ],
+      "token": "AEGIS_USER_TOKEN_4096",
+      "createdAt": 1787642686428,
+      "lastActive": 1788159886428
+    },
+    {
+      "id": "usr-nova",
+      "username": "Nova",
+      "tag": "8080",
+      "avatarColor": "#3b82f6",
+      "customStatus": "✨ Voice channels live",
+      "status": "online",
+      "roleIds": [
+        "role-member"
+      ],
+      "token": "AEGIS_USER_TOKEN_8080",
+      "createdAt": 1787815486428,
+      "lastActive": 1788160966428
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg-seed-1",
+      "channelId": "ch-announcements",
+      "authorId": "usr-commander",
+      "content": "🛡️ **Welcome to AegisCord Security Core!**\n\nAll messages and voice channels in this network are **End-to-End Encrypted (AES-GCM-256)**. Only cryptographically provisioned members with verified tokens can decrypt channel feeds. \n\nCheck out `#rules-and-privacy` to inspect cryptographic proofs!",
+      "isEncrypted": true,
+      "encryptedPayload": {
+        "iv": "4f2e9a118c7b649d031e8472",
+        "ciphertext": "Zg/rL5B4U1H9yA2Kx+J4L0vXQ3W1a8T9dY8zE2VnS4F9gJ8K9L0P1Q2R3S4T5U6V7W8X9Y0Z==",
+        "keyId": "ch-announcements:ch-key-v1",
+        "algorithm": "AES-GCM-256",
+        "version": 1
+      },
+      "reactions": [
+        {
+          "emoji": "🛡️",
+          "userIds": [
+            "usr-commander",
+            "usr-valkyrie",
+            "usr-cipher"
+          ]
+        }
+      ],
+      "pinned": true,
+      "createdAt": 1787988286428
+    },
+    {
+      "id": "msg-seed-2",
+      "channelId": "ch-general",
+      "authorId": "usr-valkyrie",
+      "content": "Key rotation and client-side ephemeral keys verified for all active operatives! 🚀 Test out sending encrypted messages and joining voice lounge.",
+      "isEncrypted": true,
+      "encryptedPayload": {
+        "iv": "1a2b3c4d5e6f7a8b9c0d1e2f",
+        "ciphertext": "TWVzc2FnZSBlbmNyeXB0ZWQgc3VjY2Vzc2Z1bGx5IQ==",
+        "keyId": "ch-general:ch-key-v1",
+        "algorithm": "AES-GCM-256",
+        "version": 1
+      },
+      "reactions": [
+        {
+          "emoji": "🔥",
+          "userIds": [
+            "usr-commander",
+            "usr-nova"
+          ]
+        }
+      ],
+      "createdAt": 1788074686428
+    },
+    {
+      "id": "msg-seed-3",
+      "channelId": "ch-general",
+      "authorId": "usr-cipher",
+      "content": "Awesome. You can also click the **green shield icon** on any message to inspect the raw ciphertext vs client-side decrypted plaintext. Zero-knowledge is verified.",
+      "isEncrypted": true,
+      "encryptedPayload": {
+        "iv": "9f8e7d6c5b4a3f2e1d0c9b8a",
+        "ciphertext": "QXVkaXRlZCBhbmQgdmVyaWZpZWQgcGF5bG9hZC4=",
+        "keyId": "ch-general:ch-key-v1",
+        "algorithm": "AES-GCM-256",
+        "version": 1
+      },
+      "reactions": [
+        {
+          "emoji": "💎",
+          "userIds": [
+            "usr-cipher",
+            "usr-commander"
+          ]
+        }
+      ],
+      "createdAt": 1788159286428
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log-1",
+      "userId": "usr-commander",
+      "action": "SERVER_INITIALIZED",
+      "details": "Server cryptographic key initialized with AES-GCM-256 cipher suite",
+      "timestamp": 1787297086428
+    },
+    {
+      "id": "log-2",
+      "userId": "usr-commander",
+      "action": "USER_PROVISIONED",
+      "details": "Provisioned operative Valkyrie#1337 with Security Admin privileges",
+      "timestamp": 1787469886428
+    }
+  ],
+  "githubSync": {
+    "repoOwner": "",
+    "repoName": "",
+    "branch": "main",
+    "filePath": "data/aegiscord-db.json",
+    "lastSyncedAt": 1788161086428
+  }
+}

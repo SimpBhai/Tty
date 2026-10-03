@@ -1,0 +1,11 @@
+{
+  "name": "AegisCord - E2EE Private Community",
+  "description": "Privacy-focused Discord-style platform featuring cryptographic user provisioning, E2EE channels and private voice calls, role permissions, and PWA capabilities.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: aegiscord
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPER_ADMIN_USERNAME
+        value: superadmin
+      - key: SUPER_ADMIN_PASSWORD
+        generateValue: true
+      - key: SUPER_ADMIN_TAG
+        value: "0001"
